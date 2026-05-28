@@ -1,0 +1,15 @@
+.env
+my_chroma_db/
+chroma_db/
+my_db/
+venv/
+__pycache__/
+*.pyc
+analysis_report.txt
+analysis_result.txt
+langchain_result.txt
+rag_result.txt
+output.txt
+result.txt
+tags.txt
+tags_result.txt
