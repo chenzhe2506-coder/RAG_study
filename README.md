@@ -1,32 +1,40 @@
-# 分析器
+# 差评智能分析系统
 
-LLM应用项目，目标：用AI自动分析商品差评，聚类归纳问题类型。
+基于 RAG + LLM 的电商评论语义聚类分析工具。
+
+## 技术栈
+
+- **Embedding**: SentenceTransformer (all-MiniLM-L6-v2)
+- **向量库**: Chroma
+- **LLM**: DeepSeek API (deepseek-v4-pro)
+- **编排**: LangChain LCEL
+
+## 核心功能
+
+1. 读取 CSV 差评数据，Embedding 转向量存入 Chroma
+2. 逐条检索相似历史差评（Top-K 语义相似）
+3. 调用 LLM 分析核心问题，输出结构化 JSON（summary + tags + severity）
+4. 标签统计，识别高频问题
+
+## 运行
+
+```bash
+pip install -r requirements.txt
+python batch_rewrite.py
+```
+
+## 输出示例
+
+```
+[1] {"summary": "手机摄像头三天进灰，客服拒绝保修", "tags": ["产品质量", "客服推诿", "保修纠纷"], "severity": "高"}
+[2] {"summary": "物流严重延迟且包装破损导致商品损坏", "tags": ["物流慢", "包装破损", "商品损坏"], "severity": "高"}
+```
 
 ## 项目结构
 
 ```
-差评聚类分析器/
-├── requirements.txt      # 依赖包
-├── config.py            # 配置（API Key、模型名）
-├── test_openai.py       # 最小可运行脚本（测试API连通性）
-└── README.md            # 本文件
+├── batch_rewrite.py    # 主分析脚本
+├── reviews.csv         # 差评数据
+├── requirements.txt    # 依赖
+└── README.md           # 本文档
 ```
-
-## 当前进度
-
-- [x] 项目骨架搭建
-- [x] 最小可运行脚本（裸requests调OpenAI）
-- [ ] 批量读取差评数据（Excel/CSV）
-- [ ] 调用Embedding接口把差评转向量
-- [ ] 用聚类算法把相似差评分组
-- [ ] 用LLM给每组生成问题标签和总结
-
-## 运行前准备
-
-1. 在 `config.py` 里填写你的 OpenAI API Key
-2. 安装依赖：`pip install -r requirements.txt`
-3. 运行测试：`python test_openai.py`
-
-## 时间线
-
-- 项目截止：2026-06-09

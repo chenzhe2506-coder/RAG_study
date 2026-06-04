@@ -1,15 +1,14 @@
+# 配置文件（含密钥）
+config.py
 .env
+
+# 向量数据库
 my_chroma_db/
-chroma_db/
-my_db/
-venv/
+
+# Python缓存
 __pycache__/
 *.pyc
-analysis_report.txt
-analysis_result.txt
-langchain_result.txt
-rag_result.txt
-output.txt
-result.txt
-tags.txt
-tags_result.txt
+
+# 旧实验文件（已重构为 batch_rewrite.py）
+batch_analyze.py
+rag_demo.py
