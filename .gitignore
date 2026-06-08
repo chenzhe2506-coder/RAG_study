@@ -4,11 +4,45 @@ config.py
 
 # 向量数据库
 my_chroma_db/
+chroma_db/
+my_db/
 
 # Python缓存
 __pycache__/
 *.pyc
 
-# 旧实验文件（已重构为 batch_rewrite.py）
+# 旧实验文件
 batch_analyze.py
 rag_demo.py
+rag_bare_api.py
+my_test1.py
+new_nanlyze.py
+my_rag.py
+new_analyze.py
+my_analyze.py
+test_openai.py
+with_demo.py
+hello_langgraph.py
+langgraph_demo.py
+analyze_reviews.py
+
+# 输出文件（运行生成）
+analysis_cache.json
+analysis_report.json
+analysis_report.txt
+analysis_result.txt
+langchain_result.txt
+output.txt
+rag_result.txt
+result.txt
+tag_stats.txt
+tags.txt
+tags_result.txt
+report.txt
+
+# 笔记/个人文件
+notes_zip_enumerate.md
+skill_checklist.md
+
+# IDE配置
+.claude/
